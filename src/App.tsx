@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './App.module.css';
-import {GitHub} from "./components/GitHub";
+import {GitHub} from "./components/github/GitHub";
 
 function App() {
   return (

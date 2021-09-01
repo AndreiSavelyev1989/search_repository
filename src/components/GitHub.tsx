@@ -3,6 +3,7 @@ import {SearchPanel} from "./search-panel/SearchPanel";
 import {DetailsRepository} from "./details-repository/DetailsRepository";
 import {RepositoriesList} from "./repositories-list/RepositoriesList";
 import styles from "./GitHub.module.css";
+import {Timer} from "./timer/Timer";
 
 export type SearchUserType = {
     login: string

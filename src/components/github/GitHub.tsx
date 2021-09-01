@@ -1,9 +1,8 @@
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import {SearchPanel} from "./search-panel/SearchPanel";
 import {DetailsRepository} from "./details-repository/DetailsRepository";
 import {RepositoriesList} from "./repositories-list/RepositoriesList";
 import styles from "./GitHub.module.css";
-import {Timer} from "./timer/Timer";
 
 export type SearchUserType = {
     login: string
@@ -19,7 +18,11 @@ export type UserType = {
     followers: number
 }
 
-export const GitHub = () => {
+type PropsType = {
+    isFetching: boolean
+    setIsFetching: (value: boolean) => void
+}
+export const GitHub: React.FC<PropsType> = ({setIsFetching, isFetching}) => {
     const initialTerm = 'it-kamasutra'
     const [selectedUser, setSelectedUser] = useState<null | SearchUserType>(null)
     const [finalSearch, setFinalSearch] = useState<string>(initialTerm)
@@ -36,11 +39,14 @@ export const GitHub = () => {
             <div className={styles.searchBlock}>
                 <SearchPanel setFinalSearch={setFinalSearch} value={finalSearch} initialTerm={initialTerm}/>
                 <RepositoriesList selectedUser={selectedUser}
+                                  isFetching={isFetching}
+                                  setIsFetching={setIsFetching}
                                   finalSearch={finalSearch}
                                   setSelectedUser={setSelectedUser}/>
             </div>
             <div className={styles.details}>
-                <DetailsRepository selectedUser={selectedUser}/>
+                <DetailsRepository selectedUser={selectedUser} isFetching={isFetching}
+                                   setIsFetching={setIsFetching}/>
             </div>
         </div>
     )

@@ -2,22 +2,34 @@ import React, {useEffect, useState} from "react";
 import {SearchUserType, UserType} from "../GitHub";
 import axios from "axios";
 import {Timer} from "../timer/Timer";
+import {Preloader} from "../../preloader/Preloader";
 
 type PropsType = {
     selectedUser: SearchUserType | null
+    isFetching: boolean
+    setIsFetching: (value: boolean) => void
+
 }
 
-export const DetailsRepository: React.FC<PropsType> = ({selectedUser}) => {
+export const DetailsRepository: React.FC<PropsType> = ({selectedUser, setIsFetching, isFetching}) => {
 
     const [userDetails, setUserDetails] = useState<null | UserType>(null)
 
     useEffect(() => {
         console.log('sync details')
+        setIsFetching(true)
         if (selectedUser) {
             axios.get<UserType>(`https://api.github.com/users/${selectedUser.login}`)
-                .then(res => setUserDetails(res.data))
+                .then(res => {
+                    setUserDetails(res.data)
+                    setIsFetching(false)
+                })
         }
     }, [selectedUser])
+
+    if(isFetching){
+        return <Preloader/>
+    }
 
     return (
         <div>

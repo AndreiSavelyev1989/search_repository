@@ -1,4 +1,4 @@
-import styles from "../GitHub.module.css";
+import styles from "./RepositoriesList.module.css";
 import React, {useEffect, useState} from "react";
 import {SearchResult, SearchUserType} from "../GitHub";
 import axios from "axios";
@@ -29,17 +29,19 @@ export const RepositoriesList: React.FC<PropsType> = ({
             })
     }, [finalSearch])
 
-    if(isFetching){
+    if (isFetching) {
         return <Preloader/>
     }
 
     return (
         <ul>
-            {users
-                .map(el => <li
+            {isFetching
+                ? <Preloader/>
+                : users.map(el => <li
                     key={el.id}
-                    className={selectedUser === el ? styles.selected : ''}
-                    onClick={() => setSelectedUser(el)}>{el.login}</li>)}
+                    className={selectedUser === el ? styles.selected : styles.currentElement}
+                    onClick={() => setSelectedUser(el)}>{el.login}</li>)
+            }
         </ul>
     )
 }

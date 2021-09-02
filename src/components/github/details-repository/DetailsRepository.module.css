@@ -1,0 +1,17 @@
+.detailsBlock {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+}
+
+.details img {
+    width: 300px;
+    height: 300px;
+}

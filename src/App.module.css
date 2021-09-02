@@ -2,7 +2,13 @@
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
-    width: 100%;
+    width: 80%;
     height: 100vh;
-    background: #c0cac0;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 360px) {
+    .appContainer {
+        width: 95%;
+    }
 }

@@ -1,0 +1,12 @@
+.currentElement{
+    margin-left: 100px;
+}
+
+.currentElement:hover {
+    cursor: pointer;
+}
+
+.selected {
+    margin-left: 100px;
+    color: #29c35c;
+}

@@ -29,12 +29,8 @@ export const RepositoriesList: React.FC<PropsType> = ({
             })
     }, [finalSearch])
 
-    if (isFetching) {
-        return <Preloader/>
-    }
-
     return (
-        <ul>
+        <ul className={styles.listBlock}>
             {isFetching
                 ? <Preloader/>
                 : users.map(el => <li

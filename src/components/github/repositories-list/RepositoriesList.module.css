@@ -1,3 +1,7 @@
+.listBlock {
+    width: 100%;
+}
+
 .currentElement{
     margin-left: 100px;
 }

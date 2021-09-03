@@ -34,13 +34,16 @@ export const DetailsRepository: React.FC<PropsType> = ({selectedUser, setIsFetch
 
     return (
         <div className={styles.detailsBlock}>
-            <h2>Details</h2>
+            <div className={styles.titleBlock}>
+                <h2>Details</h2>
+                {!userDetails && <h3>Select user repository to show details!</h3>}
+            </div>
             {
                 userDetails && <div className={styles.details}>
                     <Timer setUserDetails={setUserDetails} selectedUser={selectedUser}/>
                     <h2>{userDetails.login}</h2>
                     <img src={userDetails.avatar_url} alt="avatar"/>
-                    <div>Followers: {userDetails.followers}</div>
+                    <div className={styles.followers}>Followers: <span>{userDetails.followers}</span></div>
                 </div>
             }
         </div>

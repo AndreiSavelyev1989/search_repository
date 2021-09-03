@@ -1,0 +1,12 @@
+.preloaderBlock {
+    width: 100%;
+    min-height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.preloaderBlock img {
+    width: 100px;
+    height: 100px;
+}

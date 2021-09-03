@@ -1,3 +1,7 @@
+:root {
+--main-bg-color: #858481;
+}
+
 .container {
     width: 100%;
     display: flex;
@@ -13,12 +17,14 @@
     align-items: flex-start;
     justify-content: flex-start;
     flex-direction: column;
-    background: bisque;
+    background: var(--main-bg-color);
+    border-radius: 10px;
 }
 
 .details {
     width: 49%;
-    background: antiquewhite;
+    background: var(--main-bg-color);
+    border-radius: 10px;
 }
 
 

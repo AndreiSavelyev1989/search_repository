@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {SearchUserType, UserType} from "../GitHub";
+import styles from "./Timer.module.css";
 
 type PropsType = {
     setUserDetails: (details: null | UserType) => void
@@ -30,8 +31,9 @@ export const Timer: React.FC<PropsType> = ({setUserDetails, selectedUser}) => {
     }, [selectedUser])
 
     return (
-        <div>
-            {count}
+        <div className={styles.timerBlock}>
+            <span>This info will be show during timer:</span>
+            <span>{count}</span>
         </div>
     )
 }
